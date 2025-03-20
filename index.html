@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Melanie ❤️</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #fff0f5;
+            color: #d63384;
+            padding: 20px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        #container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #messages {
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 1.5;
+            word-wrap: break-word;
+            text-align: center;
+        }
+
+        #startButton {
+            font-size: 20px;
+            padding: 10px 20px;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        #startButton:hover {
+            background-color: #ff1493;
+        }
+
+        /* Estilo de la firma */
+        .signature {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            font-size: 14px;
+            color: #ff69b4;
+            font-weight: bold;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Mi niña 😶‍🌫️</h1>
+    
+    <div id="container">
+        <button id="startButton" onclick="startAnimation()">Click Me!</button>
+        <div id="messages"></div>
+    </div>
+
+    <!-- Firma personalizada -->
+    <div class="signature">Made with ❤️ by Ander</div>
+
+    <script>
+        function startAnimation() {
+            let count = 0;
+            let messagesDiv = document.getElementById("messages");
+            let button = document.getElementById("startButton");
+            
+            button.style.display = "none"; // Oculta el botón después de presionar
+
+            function addMessage() {
+                if (count < 1000) {
+                    let newMessage = document.createElement("p");
+                    newMessage.textContent = "Te quiero Melanie ❤️";
+                    newMessage.style.opacity = "0"; // Inicialmente invisible
+                    newMessage.style.transition = "opacity 0.5s ease-in-out";
+                    messagesDiv.appendChild(newMessage);
+                    
+                    setTimeout(() => {
+                        newMessage.style.opacity = "1"; // Se muestra con animación
+                    }, 100);
+
+                    count++;
+                    setTimeout(addMessage, 50); // Llama a la función nuevamente después de 50ms
+                }
+            }
+
+            addMessage();
+        }
+    </script>
+
+</body>
+</html>
